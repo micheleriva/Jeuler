@@ -8,35 +8,17 @@
   By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
-const EUL = () => {
+let l = 4e6
+let s = 0
+let t
+let a = 0
+let b = 1
 
-  const even = n => !(n % 2)
-
-  const evenList = []
-
-  const fib = limit => {
-
-    let a = 1
-    let b = 2
-
-    for(let i = 0; i < limit; i++){
-
-      a = b,
-      b = a+b
-
-      console.log(b)
-
-    }
-
-  }
-
-  fib(10)
-
+while(b < l){
+  t = a
+  a = b
+  b = b + t
+  (b & 1) === 0 && (s += b)
 }
 
-EUL()
-
-module.exports = {
-  algorithm: EUL,
-  result: 233168
-}
+console.log(s)
