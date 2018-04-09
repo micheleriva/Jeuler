@@ -8,17 +8,23 @@
   By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
-let l = 4e6
-let s = 0
-let t
-let a = 0
-let b = 1
+const EUL = () => {
+  let j = 1
+  let k = 0
+  let t
+  let sum = 0
 
-while(b < l){
-  t = a
-  a = b
-  b = b + t
-  (b & 1) === 0 && (s += b)
+  while(k < 4e6){
+    k % 2 > 0 && (sum += k)
+    t = j
+    j += k
+    k = t
+  }
+  
+  return sum
 }
 
-console.log(s)
+module.exports = {
+  algorithm: EUL,
+  result: 4613732
+}
